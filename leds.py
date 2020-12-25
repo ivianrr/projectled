@@ -11,7 +11,7 @@ for x in range(0,10):
 	time.sleep(.5)
 	GPIO.output(7,False)
 	GPIO.output(11,True)
-	time.sleep(.5)
+	time.sleep(.2521)
 
 
 GPIO.cleanup()
