@@ -1,11 +1,8 @@
-from gpiozero import Button
-from time import sleep
+from gpiozero import MotionSensor
 
-button = Button(18)
+pir = MotionSensor(18)
 
 while True:
-    if button.is_pressed:
-        print("Silencio")
-    else:
-        print("Movimiento")
-    sleep(1)
+	pir.wait_for_motion()
+	print("You moved")
+	pir.wait_for_no_motion()
