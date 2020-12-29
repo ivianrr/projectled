@@ -23,11 +23,12 @@ def toggle(filtro=None):
     GPIO.output(port_or_pin, int(not IR))  
     print("Modo"+("IR" if IR else "DAY"))
 
-
-camera = PiCamera(resolution=(1280, 720), framerate=30)
+initfilter()
+sleep(.5)
+camera = PiCamera(resolution=(1920, 1080), framerate=30) #(1280, 720)
 camera.rotation = 180
 # Set ISO to the desired value
-camera.iso = 100
+camera.iso = 400
 # Wait for the automatic gain control to settle
 sleep(2)
 # Now fix the values
@@ -39,8 +40,6 @@ camera.awb_gains = g
 
 # Finally, take several photos with the fixed settings
 fldr="ims/"
-initfilter()
-sleep(1)
 
 toggle("IR")
 sleep(0.3)
